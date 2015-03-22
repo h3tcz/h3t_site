@@ -38,8 +38,7 @@ production:
   database: h3t_production
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: a+5Pe+vWUuzp9&KG
 
 cucumber:
   <<: *test
