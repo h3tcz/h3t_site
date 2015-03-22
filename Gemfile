@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
-gem 'pg'
+# gem 'pg'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
@@ -28,7 +28,8 @@ gem 'slim'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
+gem 'capistrano-passenger'
 
 group :development, :test do
   gem 'pry'
