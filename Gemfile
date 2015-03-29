@@ -21,7 +21,6 @@ gem 'slim'
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
-  gem 'sshkit-sudo'
   gem 'pry'
   gem 'byebug'
   gem 'web-console', '~> 2.0'

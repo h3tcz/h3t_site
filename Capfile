@@ -1,6 +1,5 @@
 require 'capistrano/setup'
 require 'capistrano/deploy'
-require 'sshkit/sudo'
 
 # Include tasks from other gems included in your Gemfile
 #
