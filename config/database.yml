@@ -1,22 +1,27 @@
-development:
+remote: &remote
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: h3t_development
+  pool: 5
+  username: root
+  password: a+5Pe+vWUuzp9&KG
+
+local: &local
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
   pool: 5
   username: root
   password:
   socket: /tmp/mysql.sock
 
+development:
+  <<: *local
+  database: h3t_development
+
 test: &test
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *local
   database: h3t_test
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
 
 production:
   <<: *remote
@@ -28,11 +33,3 @@ sandbox:
 
 cucumber:
   <<: *test
-
-remote: &remote
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  pool: 5
-  username: root
-  password: a+5Pe+vWUuzp9&KG
