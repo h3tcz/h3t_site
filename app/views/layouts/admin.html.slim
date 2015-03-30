@@ -2,9 +2,52 @@ doctype html
 html
   head
     title
-      | H3T architekti
+      | H3T architekti Admin
     = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    .container-fluid
+      nav.navbar.navbar-default role="navigation"
+        .container-fluid
+          .navbar-header
+            button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu"
+              span class="sr-only" Toggle navigation
+              span class="icon-bar"
+              span class="icon-bar"
+              span class="icon-bar"
+            = link_to 'H3T Admin', admin_root_path, class: 'navbar-brand'
+
+          .collapse.navbar-collapse#navbar-collapse-menu
+            ul.nav.navbar-nav
+              = li_navbar_link "Logged in as #{current_user.email}", ''
+
+            ul.nav.navbar-nav.navbar-right
+              li = link_to 'Logout', destroy_user_session_path, method: :delete
+
+
+      .container-fluid
+      .row
+        .leftNav
+          .col-md-3
+            .panel.panel-default
+              .panel-heading
+                | Menu
+                .panel-body
+                  ul.nav.nav-pills.nav-stacked
+                    = li_navbar_link "Hello", ''
+                    = li_navbar_link "World", ''
+
+        .col-md-9
+          - if content_for?(:header)
+            .page-header
+              h2
+                = yield(:header)
+
+          = yield
+
+      footer
+        p
+          | © Andrej Antas. All rights reserved.
+
+      = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+      / = analytics

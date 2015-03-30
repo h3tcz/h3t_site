@@ -15,7 +15,6 @@ gem 'will_paginate-bootstrap'
 gem 'newrelic_rpm'
 gem 'friendly_id'
 gem 'devise'
-
 gem 'bootstrap-sass'
 gem 'slim'
 gem 'jquery-rails'
@@ -34,4 +33,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'thin'
 end
