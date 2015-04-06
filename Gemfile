@@ -6,17 +6,24 @@ gem 'rails', '4.2.1'
 
 gem 'mysql2'
 
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
 
+gem 'simple_form'
+gem 'paperclip'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'newrelic_rpm'
+gem 'friendly_id'
+gem 'devise'
+gem 'bootstrap-sass'
 gem 'slim'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'autoprefixer-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'retina_tag'
 
 group :development, :test do
   gem 'capistrano-rails'
@@ -25,4 +32,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'thin'
+  gem 'better_errors'
 end

@@ -1,0 +1,8 @@
+@mixin declare-font-face($font-family, $font-filename: $font-family)
+  @font-face
+    font-family: #{$font-family}
+    src: asset-url("#{$font-filename}/#{$font-filename}.ttf") format("truetype")
+    font-weight: normal
+    font-style: normal
+    font-stretch: normal
+    text-rendering: optimizeLegibility
