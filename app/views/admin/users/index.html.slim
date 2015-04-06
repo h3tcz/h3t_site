@@ -1,0 +1,9 @@
+= content_for :header, 'Admin Uzivatele'
+
+.row
+  .col-md-12
+    = link_to 'Novy admin', new_admin_user_path, class: 'btn btn-default'
+br
+.row
+  .col-md-12
+    = render 'list', users: @users

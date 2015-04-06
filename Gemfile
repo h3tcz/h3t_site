@@ -25,7 +25,6 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'retina_tag'
 
-
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
@@ -34,4 +33,5 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'thin'
+  gem 'better_errors'
 end
