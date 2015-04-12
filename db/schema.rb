@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330180927) do
+ActiveRecord::Schema.define(version: 20150412162049) do
+
+  create_table "static_pages", force: :cascade do |t|
+    t.string   "slug_cz",    limit: 255
+    t.string   "title_cz",   limit: 255
+    t.text     "content_cz", limit: 65535
+    t.string   "slug_en",    limit: 255
+    t.string   "title_en",   limit: 255
+    t.text     "content_en", limit: 65535
+    t.boolean  "published",  limit: 1,     default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :home, only: [:index]
 
     resources :users
+    resources :static_pages
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

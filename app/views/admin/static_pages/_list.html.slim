@@ -1,0 +1,37 @@
+- if static_pages.empty?
+  p
+    | No search results were returned.
+- else
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th
+          | URL
+        th
+          | title
+        th
+          | Updated
+        th
+          | Published
+        th
+          | Actions
+    tbody
+      - static_pages.each do |static_page|
+        tr
+          td
+            = static_page.slug
+          td
+            = static_page.title
+          td
+            = static_page.updated_at.to_formatted_s(:long_ordinal)
+          td
+            = static_page.published_word
+          td
+            = link_to 'Show', admin_static_page_path(static_page)
+            = " | "
+            = link_to 'Edit', edit_admin_static_page_path(static_page)
+            = " | "
+            = link_to 'Delete', admin_static_page_path(static_page), method: :delete
+
+  .pagination-container
+    = will_paginate static_pages

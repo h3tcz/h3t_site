@@ -13,7 +13,6 @@ gem 'paperclip'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'newrelic_rpm'
-gem 'friendly_id'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'slim'
@@ -24,6 +23,9 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'retina_tag'
+
+gem 'ckeditor_rails'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
   gem 'capistrano-rails'

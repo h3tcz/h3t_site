@@ -3,7 +3,7 @@ html
   head
     title
       | H3T architekti Admin
-    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'admin', media: 'all'
     = csrf_meta_tags
   body
     .container-fluid
@@ -35,6 +35,7 @@ html
                 .panel-body
                   ul.nav.nav-pills.nav-stacked
                     = li_navbar_link "Admin Uzivatele", admin_users_path
+                    = li_navbar_link "Staticke Stranky", admin_static_pages_path
 
         .col-md-9
           - if content_for?(:header)
@@ -48,5 +49,5 @@ html
         p
           | © Andrej Antas. All rights reserved.
 
-      = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+      = javascript_include_tag 'admin'
       / = analytics

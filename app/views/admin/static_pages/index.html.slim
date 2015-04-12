@@ -1,0 +1,9 @@
+= content_for :header, 'Stranky'
+
+.row
+  .col-md-12
+    = link_to 'Nova stranka', new_admin_static_page_path, class: 'btn btn-default'
+br
+.row
+  .col-md-12
+    = render 'list', static_pages: @static_pages
