@@ -1,0 +1,9 @@
+= content_for :header, 'Projekty'
+
+.row
+  .col-md-12
+    = link_to 'Novy Projekt', new_admin_project_path, class: 'btn btn-default'
+br
+.row
+  .col-md-12
+    = render 'list', projects: @projects

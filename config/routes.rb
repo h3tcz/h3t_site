@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :static_pages
+    resources :projects
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

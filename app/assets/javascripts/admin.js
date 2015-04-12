@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require ckeditor-jquery
+//= require jquery_nested_form
 
 $('.ckeditor').ckeditor({
   // config here ! look https://github.com/tsechingho/ckeditor-rails

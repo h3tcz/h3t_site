@@ -1,0 +1,36 @@
+= simple_nested_form_for [:admin, @project], html: { class: 'form-vertical' } do |f|
+
+  ul.nav.nav-tabs
+    li.active
+      = link_to "General", "#general"
+    li
+      = link_to "Cesky", "#czech"
+    li
+      = link_to "English", "#english"
+    li
+      = link_to "Gallery", "#gallery"
+
+  .tab-content
+
+    #general.tab-pane.fade.in.active
+      = f.input :published
+      = f.input :year
+
+    #czech.tab-pane.fade
+      = f.input :slug_cz, disabled: true
+      = f.input :title_cz
+      = f.input :location_cz
+      = f.input :collaborator_cz
+      = f.input :content_cz, input_html: { class: 'ckeditor' }
+
+    #english.tab-pane.fade
+      = f.input :slug_en, disabled: true
+      = f.input :title_en
+      = f.input :location_en
+      = f.input :collaborator_en
+      = f.input :content_en, input_html: { class: 'ckeditor' }
+
+    #gallery.tab-pane.fade
+      = f.input :pictures, as: :image, multiple: true, label: false
+
+  = f.button :submit
