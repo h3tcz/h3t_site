@@ -21,3 +21,5 @@ config/deploy/sandbox.rb
 
 # local image storage
 public/system/*
+
+/tags

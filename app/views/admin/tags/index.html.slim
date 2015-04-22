@@ -1,0 +1,9 @@
+= content_for :header, 'Tagy'
+
+.row
+  .col-md-12
+    = link_to 'Novy Tag', new_admin_tag_path, class: 'btn btn-default'
+br
+.row
+  .col-md-12
+    = render 'list', tags: @tags

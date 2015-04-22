@@ -25,8 +25,8 @@ gem 'uglifier'
 gem 'retina_tag'
 
 gem 'ckeditor_rails'
-gem 'acts-as-taggable-on', '~> 3.4'
 gem 'nested_form'
+gem 'chosen-rails'
 
 group :development, :test do
   gem 'capistrano-rails'

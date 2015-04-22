@@ -15,6 +15,7 @@
     #general.tab-pane.fade.in.active
       = f.input :published
       = f.input :year
+      = f.input :tag_ids, collection: Tag.all.map{ |u| [u.name, u.id] }, input_html: { include_blank: true, multiple: true, class: 'chosen-select optional form-control' }
 
     #czech.tab-pane.fade
       = f.input :slug_cz, disabled: true

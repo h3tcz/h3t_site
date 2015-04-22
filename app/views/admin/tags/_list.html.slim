@@ -1,0 +1,31 @@
+- if tags.empty?
+  p
+    | No search results were returned.
+- else
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th
+          | ID
+        th
+          | Name
+        th
+          | Created
+        th
+          | Actions
+    tbody
+      - tags.each do |tag|
+        tr
+          td
+            = tag.id
+          td
+            = tag.name
+          td
+            = tag.created_at.to_formatted_s(:long_ordinal)
+          td
+            = link_to 'Edit', edit_admin_tag_path(tag)
+            = " | "
+            = link_to 'Delete', admin_tag_path(tag), method: :delete
+
+  .pagination-container
+    = will_paginate tags

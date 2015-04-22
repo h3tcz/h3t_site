@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users
     resources :static_pages
     resources :projects
+    resources :tags
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

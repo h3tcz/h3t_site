@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412193937) do
+ActiveRecord::Schema.define(version: 20150422184447) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "image_file_name",    limit: 255
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(version: 20150412193937) do
     t.datetime "updated_at",                               null: false
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",     limit: 4
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "taggings", ["project_id"], name: "index_taggings_on_project_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -73,4 +89,6 @@ ActiveRecord::Schema.define(version: 20150412193937) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "pictures", "projects"
+  add_foreign_key "taggings", "projects"
+  add_foreign_key "taggings", "tags"
 end
