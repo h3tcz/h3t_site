@@ -4,7 +4,7 @@ module Sluggable
   included do
     before_save :set_slugs
 
-    def slug
+    def slug_string
       "CZ: /#{slug_cz} EN: /#{slug_en}"
     end
 
@@ -24,4 +24,8 @@ module Sluggable
     end
 
   end
+
+  # TODO needs something like #slug to decide according to chosen language which one to use
+  # find usage then in projects_controller
+  # find usage then in static_pages_controller
 end

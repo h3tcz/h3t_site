@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
+  validates :title_cz, presence: true
+
   has_attached_file :title_picture, styles: {
     mini: "70x70#",
     thumb: "100x100#",

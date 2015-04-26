@@ -1,0 +1,10 @@
+table
+  thead
+    tr
+      td
+        | Project Name
+  tbody
+    - @projects.each do |project|
+      tr
+        td
+          = link_to project.title, project_path(id: project.slug_cz)
