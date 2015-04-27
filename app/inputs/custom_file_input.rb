@@ -14,7 +14,9 @@ class CustomFileInput < SimpleForm::Inputs::Base
       ret << input_fields
     end
     ret << "</div>"
+    ret << "<div class='well well-large add-sign'>"
     ret << link_to_add_file
+    ret << "</div>"
     ret << "<div class='clearfix'></div>".html_safe
     ret
   end
