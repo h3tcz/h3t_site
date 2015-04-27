@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  accepts_nested_attributes_for :pictures
+  accepts_nested_attributes_for :pictures, allow_destroy: true
 
   has_attached_file :title_picture, styles: {
     mini: "70x70#",
