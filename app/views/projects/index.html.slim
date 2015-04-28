@@ -1,10 +1,11 @@
-table
-  thead
-    tr
-      td
-        | Project Name
-  tbody
+.index
+  .col-md-3
     - @projects.each do |project|
-      tr
-        td
-          = link_to project.title, project_path(id: project.slug_cz)
+      = link_to project.title_cz, project_path(id: project.slug_cz)
+      br
+
+
+  .col-md-9
+    - @projects.each_with_index do |project, index|
+        = link_to project_path(id: project.slug_cz), data: {gallery: ''} do
+          = image_tag project.title_picture.url(:medium), width: 192

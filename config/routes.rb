@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   resources :home, only: :index do
     get :homepage, on: :collection
   end
-
   resources :projects, only: [:index, :show]
-  resources :static_pages, only: :show
 
   namespace :admin do
     root 'home#index'
@@ -20,4 +18,6 @@ Rails.application.routes.draw do
     resources :projects
     resources :tags
   end
+
+  get '/:id' => 'static_pages#show', as: :static_page
 end

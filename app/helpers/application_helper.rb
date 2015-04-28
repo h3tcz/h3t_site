@@ -26,7 +26,7 @@ module ApplicationHelper
     ].join('').html_safe
   end
 
-  # TODO solve static pages ids 
+  # TODO solve static pages ids
   def equal_to_params(controller=nil, action=nil)
     controller == params[:controller] && action.include?(params[:action])
   end

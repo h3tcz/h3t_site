@@ -7,6 +7,6 @@ class StaticPagesController < ApplicationController
   private
 
   def find_static_page
-    @static_page = StaticPage.find(params[:id])
+    @static_page = StaticPage.find_by_slug_cz(params[:id])
   end
 end
