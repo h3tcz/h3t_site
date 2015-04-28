@@ -28,6 +28,7 @@ gem 'ckeditor_rails'
 gem 'nested_form'
 gem 'chosen-rails'
 gem 'fancybox2-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'capistrano-rails'

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'home#index'
-  # root 'home#homepage' # uncomment when page is going live:)
+  root 'home#homepage'
 
   resources :home, only: :index do
     get :homepage, on: :collection

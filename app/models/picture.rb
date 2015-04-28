@@ -4,7 +4,8 @@ class Picture < ActiveRecord::Base
   has_attached_file :image, styles: {
     mini: "70x70#",
     thumb: "100x100#",
-    medium: "200x200#"
+    medium: "200x200#",
+    large: "400x400#"
   }
 
   before_post_process { |c| transliterate_file_name(:image) }
