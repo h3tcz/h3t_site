@@ -1,0 +1,37 @@
+- if projects.empty?
+  p
+    | No search results were returned.
+- else
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th
+          | URL
+        th
+          | title
+        th
+          | Updated
+        th
+          | Published
+        th
+          | Actions
+    tbody
+      - projects.each do |project|
+        tr
+          td
+            = project.slug
+          td
+            = project.title
+          td
+            = project.updated_at.to_formatted_s(:long_ordinal)
+          td
+            = project.published_word
+          td
+            = link_to 'Show', admin_project_path(project)
+            = " | "
+            = link_to 'Edit', edit_admin_project_path(project)
+            = " | "
+            = link_to 'Delete', admin_project_path(project), method: :delete
+
+  .pagination-container
+    = will_paginate projects

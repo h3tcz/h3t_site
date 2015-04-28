@@ -4,6 +4,43 @@ SimpleForm.setup do |config|
   config.button_class = 'btn btn-default'
   config.boolean_label_class = nil
 
+  config.wrappers :bootstrap, tag: 'div', class: 'control-group form-group', error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label,  wrap_with: { tag: :div, class: 'col-lg-2' }
+    b.wrapper tag: 'div', class: 'controls col-lg-10' do |ba|
+      ba.use :input
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+    end
+  end
+
+  config.wrappers :prepend, tag: 'div', class: "control-group form-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label,  wrap_with: { tag: :div, class: 'col-lg-2' }
+    b.wrapper tag: 'div', class: 'controls col-lg-10' do |input|
+      input.wrapper tag: 'div', class: 'input-prepend' do |prepend|
+        prepend.use :input
+      end
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :append, tag: 'div', class: "control-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label
+    b.wrapper tag: 'div', class: 'controls' do |input|
+      input.wrapper tag: 'div', class: 'input-append' do |append|
+        append.use :input
+      end
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder

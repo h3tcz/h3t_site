@@ -1,3 +1,8 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-sprockets
+//= require ckeditor-jquery
+//= require jquery_nested_form
+//= require chosen-jquery
+//= require fancybox
+//= require admin/init

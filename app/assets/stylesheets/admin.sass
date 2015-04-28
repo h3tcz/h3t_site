@@ -1,6 +1,48 @@
 @import bootstrap-sprockets
 @import bootstrap
+@import chosen
+@import "jquery.fancybox"
+@import "jquery.fancybox-buttons"
+@import "jquery.fancybox-thumbs"
 
 footer
   position: fixed
   bottom: 0px
+
+.form-group.select.optional.project_tag_ids
+  .chosen-container.chosen-container-multi
+    .chosen-choices
+      display: block
+      width: 100%
+      padding: 3px 6px
+      font-size: 14px
+      line-height: 1.42857143
+      color: #555555
+      background-color: #fff
+      background-image: none
+      border: 1px solid #ccc
+      border-radius: 4px
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s
+      background-image: none
+
+.pictures-fields
+  .fields
+    float: left
+    width: 250px
+    height: 140px
+    padding-right: 20px
+    .well-large
+      height: 140px
+      a
+        text-decoration: none
+    .row
+      text-align: center
+
+.add-sign
+  float: left
+  width: 140px
+  height: 140px
+  font-size: 94px
+  a
+    text-decoration: none
