@@ -5,7 +5,7 @@
       br
 
 
-  .col-md-9
+  .col-md-9.gallery
     - @projects.each_with_index do |project, index|
         = link_to project_path(id: project.slug_cz), data: {gallery: ''} do
           = image_tag project.title_picture.url(:medium), width: 192

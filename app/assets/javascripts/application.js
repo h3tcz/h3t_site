@@ -4,4 +4,5 @@
 //= require bootstrap-sprockets
 //= require fancybox
 //= require application/init
+//= require application/images
 //= require turbolinks
