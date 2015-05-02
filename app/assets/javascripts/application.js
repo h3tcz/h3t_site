@@ -1,8 +1,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.easing
 //= require bootstrap-sprockets
 //= require fancybox
 //= require application/init
 //= require application/images
+//= require application/random_image
 //= require turbolinks

@@ -6,6 +6,6 @@
     = menu_link_to("DOMŮ", root_path, 'home', 'homepage')
     = menu_link_to("PROJEKTY", projects_path, 'projects', ['index','show'])
     - StaticPage.published.each do |page|
-      = menu_link_to(page.title_cz, static_page_path(page.slug_cz), 'static_pages', ['show'])
+      = menu_link_to(page.title_cz, "#{root_path}##{page.slug_cz}")
 
   br.clearfix

@@ -1,11 +1,10 @@
 .index
-  .col-md-3
-    - @projects.each do |project|
-      = link_to project.title_cz, project_path(id: project.slug_cz)
-      br
-
-
-  .col-md-9.gallery
+  .col-md-12.gallery
     - @projects.each_with_index do |project, index|
-        = link_to project_path(id: project.slug_cz), data: {gallery: ''} do
-          = image_tag project.title_picture.url(:medium), width: 192
+      .picture
+        = image_tag project.title_picture.url(:medium), width: 192
+
+        = link_to project_path(id: project.slug_cz) do
+          .picture_overlay
+            .text
+              = project.title_cz
