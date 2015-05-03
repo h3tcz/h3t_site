@@ -7,6 +7,10 @@ a
   text-decoration: none
   color: #000
 
+.index, .detail
+  h3
+    font-size: 14px
+
 .row.header
   padding-left: 15px
   padding-right: 15px
@@ -18,7 +22,7 @@ ul.menu
   width: auto
   li
     padding-right: 15px
-    font-size: 18px
+    font-size: 14px
     list-style-type: none
     float: left
   li.active
@@ -30,7 +34,9 @@ ul.menu
     padding-top: 75px
     .carousel
       width: 400px
-      margin-left: 105px
+      float: right
+  .col-md-6
+    padding-left: 0px
 
 .gallery
   padding-left: 0px
@@ -69,7 +75,9 @@ ul.menu
 
 .years
   text-align: center
+  padding-bottom: 15px
   .year
     display: inline-block
     padding: 15px
-    padding-bottom: 30px
+  .year.active
+    text-decoration: underline

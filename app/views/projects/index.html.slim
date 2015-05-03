@@ -1,9 +1,10 @@
 .index
   .col-md-12.years
-    .year
+    .year class="#{params[:year].present? ? '' : 'active'}"
       = link_to 'Všechny', projects_path
+
     - @years.each do |year|
-      .year
+      .year class="#{(params[:year].present? && year.to_s == params[:year]) ? 'active' : ''}"
         = link_to year, projects_path(year: year)
 
   .col-md-12.gallery
