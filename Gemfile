@@ -6,8 +6,6 @@ gem 'rails', '4.2.1'
 
 gem 'mysql2'
 
-gem 'turbolinks'
-
 gem 'simple_form'
 gem 'paperclip'
 gem 'will_paginate'
@@ -28,7 +26,6 @@ gem 'ckeditor_rails'
 gem 'nested_form'
 gem 'chosen-rails'
 gem 'fancybox2-rails'
-gem 'jquery-turbolinks'
 gem 'jquery-easing-rails'
 
 group :development, :test do

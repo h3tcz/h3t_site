@@ -2,12 +2,14 @@ class Project < ActiveRecord::Base
   include Sluggable
 
   has_many :pictures, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+
+  scope :with_year, -> (year) { where(year: year) }
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
-  validates :title_cz, presence: true
+  validates :title_cz, :year, presence: true
 
   has_attached_file :title_picture, styles: {
     mini: "70x70#",

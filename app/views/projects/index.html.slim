@@ -1,6 +1,13 @@
 .index
+  .col-md-12.years
+    .year
+      = link_to 'Všechny', projects_path
+    - @years.each do |year|
+      .year
+        = link_to year, projects_path(year: year)
+
   .col-md-12.gallery
-    - @projects.each_with_index do |project, index|
+    - @projects.each do |project|
       .picture
         = image_tag project.title_picture.url(:medium), width: 192
 
