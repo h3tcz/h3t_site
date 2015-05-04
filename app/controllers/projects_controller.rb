@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @years = Project.published.pluck(:year).compact.uniq.sort
     if params[:year].present?
-      @projects = Project.with_year(params[:year])
+      @projects = Project.published.with_year(params[:year])
     else
       @projects = Project.published
     end
