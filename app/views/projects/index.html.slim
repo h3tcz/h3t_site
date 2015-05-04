@@ -1,0 +1,18 @@
+.index
+  .col-md-12.years
+    .year class="#{params[:year].present? ? '' : 'active'}"
+      = link_to 'Všechny', projects_path
+
+    - @years.each do |year|
+      .year class="#{(params[:year].present? && year.to_s == params[:year]) ? 'active' : ''}"
+        = link_to year, projects_path(year: year)
+
+  .col-md-12.gallery
+    - @projects.each do |project|
+      .picture
+        = image_tag project.title_picture.url(:medium), width: 192
+
+        = link_to project_path(id: project.slug_cz) do
+          .picture_overlay
+            .text
+              = project.title_cz

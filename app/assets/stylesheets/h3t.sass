@@ -1,28 +1,83 @@
 @import url(http://fonts.googleapis.com/css?family=News+Cycle)
 
 body
-  font-family: 'PT Sans'
-
-
-.container-fluid
-  text-align: center
-
-.container-fluid .company_logo
-  padding-top: 5%
-
-.container-fluid .company_information h1
-  font-size: 36px
-  font-weight: bold
-
-.container-fluid .company_information
-  padding-top: 20px
-
-.email, .phone, .fb
-  padding-top: 20px
-
-.container-fluid .additional_info
-  padding-top: 50px
+  font-family: 'News Cycle'
 
 a
   text-decoration: none
   color: #000
+
+.index, .detail
+  h3
+    font-size: 14px
+
+.row.header
+  padding-left: 15px
+  padding-right: 15px
+  padding-top: 25px
+  padding-bottom: 25px
+
+ul.menu
+  margin-top: 15px
+  width: auto
+  li
+    padding-right: 15px
+    font-size: 14px
+    list-style-type: none
+    float: left
+  li.active
+    text-decoration: underline
+
+.detail
+  .images
+    text-align: center
+    padding-top: 75px
+    .carousel
+      width: 400px
+      float: right
+  .col-md-6
+    padding-left: 0px
+
+.gallery
+  padding-left: 0px
+  padding-right: 0px
+  overflow: hidden
+  .index_picture
+    float: left
+    display: none
+    overflow: hidden
+  .picture
+    position: relative
+    float: left
+    .picture_overlay
+      position: absolute
+      opacity: 0
+      top: 0
+      left: 0
+      text-align: center
+      background: #FFF
+      .text
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        margin: auto auto
+        width: 236px
+        height: 1px
+  .picture:hover .picture_overlay
+    opacity: 0.7
+    color: #000
+
+.center
+  text-align: center
+  padding-bottom: 50px
+
+.years
+  text-align: center
+  padding-bottom: 15px
+  .year
+    display: inline-block
+    padding: 15px
+  .year.active
+    text-decoration: underline

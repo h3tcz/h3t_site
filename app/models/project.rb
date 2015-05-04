@@ -2,15 +2,21 @@ class Project < ActiveRecord::Base
   include Sluggable
 
   has_many :pictures, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  scope :with_year, -> (year) { where(year: year) }
+  scope :published, -> { where(published: true) }
+
   accepts_nested_attributes_for :pictures, allow_destroy: true
+
+  validates :title_cz, :year, presence: true
 
   has_attached_file :title_picture, styles: {
     mini: "70x70#",
     thumb: "100x100#",
-    medium: "200x200#"
+    medium: "200x200#",
+    large: "400x400#"
   }
 
   before_post_process { |c| transliterate_file_name(:image) }

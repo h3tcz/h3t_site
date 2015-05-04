@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | H3T architekti Admin
+    = stylesheet_link_tag    'admin', media: 'all'
+    = csrf_meta_tags
+  body
+    .container-fluid
+      .col-md-12.devise
+        = yield
+
+    footer
+      p
+        | © Andrej Antas. All rights reserved.
+
+    = javascript_include_tag 'admin'
+    / = analytics

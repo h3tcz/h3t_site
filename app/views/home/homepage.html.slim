@@ -1,0 +1,15 @@
+.index
+  .col-md-12.gallery
+    - @projects.each_with_index do |project, index|
+      .index_picture
+        = link_to project_path(id: project.slug_cz) do
+          = image_tag project.title_picture.url(:medium), width: 192
+
+  .col-md-12
+    - @static_pages.each do |page|
+      hr
+      .center id="#{page.slug_cz}"
+        h3
+          = page.title_cz
+        br
+        = raw page.content_cz

@@ -37,7 +37,7 @@ class Admin::ProjectsController < AdminController
 
   def destroy
     @project.destroy
-    redirect_to admin_projects_path
+    redirect_to admin_projects_path, notice: 'Projekt smazan!'
   end
 
   private
@@ -53,7 +53,7 @@ class Admin::ProjectsController < AdminController
   def premitted_params
     params.permit(project: [:published, :year, :slug_cz, :slug_en, :title_cz,
       :title_en, :content_cz, :content_en, :location_cz, :location_en,
-      :collaborator_cz, :collaborator_en, :title_picture, tag_ids: [], 
+      :collaborator_cz, :collaborator_en, :title_picture, tag_ids: [],
       :pictures_attributes => [:id, :image, :_destroy]])
   end
 end
