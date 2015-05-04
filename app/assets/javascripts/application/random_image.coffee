@@ -16,7 +16,8 @@ refresh = () ->
 
 $(document).ready ->
   init()
-  window.setInterval (->
-    refresh()
-    return
-  ), 5000
+  if $('.index_picture').size() > 8
+    window.setInterval (->
+      refresh()
+      return
+    ), 5000

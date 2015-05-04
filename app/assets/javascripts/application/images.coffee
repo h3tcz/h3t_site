@@ -5,7 +5,7 @@ $(window).resize ->
   listen()
 
 listen = () ->
-  gallery_width = $('.gallery').width()
+  gallery_width = $('.gallery').width() - 5
   if gallery_width <= 650
     image_width = gallery_width / 3
   else if gallery_width <= 450
