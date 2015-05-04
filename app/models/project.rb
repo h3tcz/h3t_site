@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   scope :with_year, -> (year) { where(year: year) }
+  scope :published, -> { where(published: true) }
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
