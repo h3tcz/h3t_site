@@ -3,6 +3,7 @@ html
   head
     title
       | H3T architekti
+    = analytics_init if Rails.env.production?
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags

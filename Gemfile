@@ -28,6 +28,8 @@ gem 'chosen-rails'
 gem 'fancybox2-rails'
 gem 'jquery-easing-rails'
 
+gem 'google-analytics-rails'
+
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
