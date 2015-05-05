@@ -29,6 +29,7 @@ gem 'fancybox2-rails'
 gem 'jquery-easing-rails'
 
 gem 'google-analytics-rails'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'capistrano-rails'
