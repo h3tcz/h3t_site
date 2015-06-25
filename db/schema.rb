@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427202747) do
+ActiveRecord::Schema.define(version: 20150625202438) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "image_file_name",    limit: 255
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150427202747) do
     t.string   "title_picture_content_type", limit: 255
     t.integer  "title_picture_file_size",    limit: 4
     t.datetime "title_picture_updated_at"
+    t.boolean  "published_front",            limit: 1,     default: true
   end
 
   create_table "static_pages", force: :cascade do |t|
