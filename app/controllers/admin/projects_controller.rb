@@ -43,7 +43,7 @@ class Admin::ProjectsController < AdminController
   private
 
   def find_projects
-    @projects = Project.all.paginate(page: params[:page])
+    @projects = Project.all.paginate(page: params[:page], per_page: 15)
   end
 
   def find_project
