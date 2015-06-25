@@ -6,3 +6,4 @@
 //= require application/init
 //= require application/images
 //= require application/random_image
+//= require application/scroll_top
