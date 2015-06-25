@@ -16,6 +16,10 @@ module Sluggable
       published ? "Yes" : "No"
     end
 
+    def published_front_word
+      published_front ? "Yes" : "No"
+    end
+
     private
 
     def set_slugs

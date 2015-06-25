@@ -5,8 +5,11 @@ class Project < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
-  scope :with_year, -> (year) { where(year: year) }
-  scope :published, -> { where(published: true) }
+  default_scope { order('year DESC') }
+
+  scope :with_year,            -> (year) { where(year: year) }
+  scope :published,            -> { where(published: true) }
+  scope :published_front_page, -> { where(published_front: true) }
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 

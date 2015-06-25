@@ -2,6 +2,10 @@
   p
     | No search results were returned.
 - else
+
+  .pagination-container
+    = will_paginate projects
+
   table.table.table-striped.table-bordered
     thead
       tr
@@ -13,6 +17,8 @@
           | Updated
         th
           | Published
+        th
+          | Published FP
         th
           | Actions
     tbody
@@ -26,6 +32,8 @@
             = project.updated_at.to_formatted_s(:long_ordinal)
           td
             = project.published_word
+          td
+            = project.published_front_word
           td
             = link_to 'Show', admin_project_path(project)
             = " | "
