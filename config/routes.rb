@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
     resources :users
     resources :static_pages
-    resources :projects
+    resources :projects do
+      get :search, on: :collection
+    end
     resources :tags
   end
 end

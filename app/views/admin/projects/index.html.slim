@@ -3,7 +3,15 @@
 .row
   .col-md-12
     = link_to 'Novy Projekt', new_admin_project_path, class: 'btn btn-default'
+
+br
+
+.row
+  .col-md-12
+    .col-sm-6
+      = text_field_tag :name, nil, class: 'form-control', placeholder: 'Zadaj meno pre vyhladavanie...', 'data-url' => search_admin_projects_path
 br
 .row
   .col-md-12
-    = render 'list', projects: @projects
+    .project_list
+      = render 'list', projects: @projects
