@@ -40,6 +40,12 @@ class Admin::ProjectsController < AdminController
     redirect_to admin_projects_path, notice: 'Projekt smazan!'
   end
 
+  def search
+    @projects = Project.where("title_cz LIKE ?", '%'+params[:name]+'%').
+      paginate(page: params[:page], per_page: 15)
+    render partial: 'list', locals: { projects: @projects }
+  end
+
   private
 
   def find_projects

@@ -20,6 +20,8 @@
         th
           | Published FP
         th
+          | Year
+        th
           | Actions
     tbody
       - projects.each do |project|
@@ -34,6 +36,8 @@
             = project.published_word
           td
             = project.published_front_word
+          td
+            = project.year
           td
             = link_to 'Show', admin_project_path(project)
             = " | "
