@@ -1,8 +1,10 @@
 $(document).ready ->
   listen()
+  show()
 
 $(window).resize ->
   listen()
+  show()
 
 listen = () ->
   gallery_width = $('.gallery').width() - 11
@@ -18,3 +20,7 @@ listen = () ->
   $('.picture .picture_overlay').height parseInt(image_width)
   $('.picture .picture_overlay .text').width parseInt(image_width)
   return
+
+show = () ->
+  if $('.image .fancybox img')
+    $('.image .fancybox img').width($('.images').width())
