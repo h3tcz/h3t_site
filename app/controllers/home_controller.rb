@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   # new homepage is going to be in here
   def homepage
-    @projects = Project.published.published_front_page
+    @projects = Project.published.published_front_page.order(created_at: :desc)
     @static_pages = StaticPage.all
   end
 end

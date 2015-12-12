@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     else
       @projects = Project.published
     end
+    @projects.order!(created_at: :desc)
   end
 
   def show
