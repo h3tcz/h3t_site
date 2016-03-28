@@ -78,7 +78,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-staging:
+sandbox:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
 
