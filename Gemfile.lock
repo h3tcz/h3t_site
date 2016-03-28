@@ -103,7 +103,6 @@ GEM
       compass (~> 1.0.0)
       sass-rails (<= 5.0.1)
       sprockets (< 2.13)
-    daemons (1.1.9)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -113,7 +112,6 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
-    eventmachine (1.0.1)
     execjs (2.4.0)
     fancybox2-rails (0.2.8)
       railties (>= 3.1.0, < 5.0)
@@ -141,7 +139,6 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
-    mysql2 (0.3.18)
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -155,10 +152,12 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.4)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (3.2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -224,10 +223,6 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     temple (0.7.5)
-    thin (1.5.0)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -266,18 +261,18 @@ DEPENDENCIES
   jquery-easing-rails
   jquery-rails
   jquery-ui-rails
-  mysql2
   nested_form
   newrelic_rpm
   paperclip
+  pg
   pry
+  puma
   rails (= 4.2.1)
   retina_tag
   sass-rails
   simple_form
   slim
   spring
-  thin
   uglifier
   web-console (~> 2.0)
   will_paginate
