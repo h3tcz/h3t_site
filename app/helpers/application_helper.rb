@@ -7,7 +7,12 @@ module ApplicationHelper
       count: resource.errors.count,
       resource: resource.class.model_name.human.downcase)
 
-    html = <<-HTML
+    bootstrap_html_message(sentence, messages)
+  end
+
+  def bootstrap_html_message(sentence, messages)
+    html = []
+    html << <<-HTML
     <div class="alert alert-danger alert-block">
       <button type="button" class="close" data-dismiss="alert">x</button>
       <h5>#{sentence}</h4>
@@ -15,19 +20,21 @@ module ApplicationHelper
     </div>
     HTML
 
-    html.html_safe
+    safe_join(html)
   end
 
-  def menu_link_to(name, link, controller=nil, action=nil)
+  def menu_link_to(name, link, controller = nil, action = nil)
     link_array = [
       "<li class='#{equal_to_params(controller, action, link) ? 'active' : ''}'>",
       "<a href=#{link}>#{name}</a>",
-      "</li>"
-    ].join('').html_safe
+      '</li>'
+    ]
+    safe_join(link_array)
   end
 
-  # TODO solve static pages ids
-  def equal_to_params(controller, action, link)
-    controller == params[:controller] && action.include?(params[:action]) if controller && action
+  # TODO: solve static pages ids
+  def equal_to_params(controller, action, _link)
+    controller == params[:controller] &&
+      action.include?(params[:action]) if controller && action
   end
 end

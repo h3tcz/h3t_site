@@ -1,51 +1,53 @@
-class Admin::TagsController < AdminController
-  before_filter :find_tags, only: [:index]
-  before_filter :find_tag, only: [:edit, :update, :destroy]
+module Admin
+  class TagsController < AdminController
+    before_action :find_tags, only: [:index]
+    before_action :find_tag, only: [:edit, :update, :destroy]
 
-  def index
-  end
-
-  def new
-    @tag = Tag.new
-  end
-
-  def create
-    @tag = Tag.new(premitted_params[:tag])
-
-    if @tag.save
-      redirect_to admin_tags_path
-    else
-      render 'new'
+    def index
     end
-  end
 
-  def edit
-  end
-
-  def update
-    if @tag.update_attributes(premitted_params[:tag])
-      redirect_to admin_tags_path
-    else
-      render 'edit'
+    def new
+      @tag = Tag.new
     end
-  end
 
-  def destroy
-    @tag.destroy
-    redirect_to admin_tags_path
-  end
+    def create
+      @tag = Tag.new(premitted_params[:tag])
 
-  private
+      if @tag.save
+        redirect_to admin_tags_path
+      else
+        render 'new'
+      end
+    end
 
-  def find_tags
-    @tags = Tag.all.paginate(page: params[:page])
-  end
+    def edit
+    end
 
-  def find_tag
-    @tag = Tag.find(params[:id])
-  end
+    def update
+      if @tag.update_attributes(premitted_params[:tag])
+        redirect_to admin_tags_path
+      else
+        render 'edit'
+      end
+    end
 
-  def premitted_params
-    params.permit(tag: [:name])
+    def destroy
+      @tag.destroy
+      redirect_to admin_tags_path
+    end
+
+    private
+
+    def find_tags
+      @tags = Tag.all.paginate(page: params[:page])
+    end
+
+    def find_tag
+      @tag = Tag.find(params[:id])
+    end
+
+    def premitted_params
+      params.permit(tag: [:name])
+    end
   end
 end

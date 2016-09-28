@@ -8,16 +8,16 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     if devise_controller?
-      "devise"
+      'devise'
     else
-      "application"
+      'application'
     end
   end
 
   private
 
   # Overwriting the sign_out redirect path method
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     admin_root_path
   end
 end
