@@ -32,10 +32,13 @@ gem 'newrelic_rpm'
 
 gem 'puma'
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
   gem 'rubocop', require: false
