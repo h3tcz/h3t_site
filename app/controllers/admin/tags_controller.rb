@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class TagsController < AdminController
     before_action :find_tags, only: [:index]

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class StaticPagesController < ApplicationController
   before_action :find_static_page, only: :show
 

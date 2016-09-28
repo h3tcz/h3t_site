@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class ProjectsController < AdminController
     before_action :find_projects, only: [:index]

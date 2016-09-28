@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CustomFileInput < SimpleForm::Inputs::Base
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::UrlHelper
@@ -10,7 +11,8 @@ class CustomFileInput < SimpleForm::Inputs::Base
 
   def image_html
     ret = []
-    ret << content_tag(:div, class: "#{attribute_name}-fields") do
+    ret << content_tag(:div, class: "#{attribute_name}-fields",
+                       'data-update-url': sort_admin_pictures_path.to_s) do
       input_fields if object.send(attribute_name.to_s)
     end
     ret << content_tag(:div, class: 'well well-large add-sign') do
@@ -22,11 +24,14 @@ class CustomFileInput < SimpleForm::Inputs::Base
 
   def link_to_add_file
     if options[:multiple]
-      @builder.link_to_add('',
+      ret = []
+      ret << @builder.link_to_add('',
                            :"#{attribute_name.to_s}",
                            data: { target: ".#{attribute_name}-fields" },
                            class: 'glyphicon glyphicon-plus pull-right',
                            t°8itle: I18n.t("#{attribute_name}.add"))
+      ret << content_tag(:div, nil, class: 'clearfix')
+      safe_join(ret)
     else
       ''
     end
@@ -45,7 +50,7 @@ class CustomFileInput < SimpleForm::Inputs::Base
 
   def uploaded_preview(form)
     uploaded = ''
-    uploaded = preview_line(form) unless form.object && form.object.new_record?
+    uploaded = preview_line(form) unless form.object&.new_record?
     uploaded
   end
 

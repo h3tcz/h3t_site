@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module TransliteratePaperclip
   def transliterate_file_name(paperclip_file)
     paperclip_file = [paperclip_file] unless paperclip_file.is_a?(Enumerable)

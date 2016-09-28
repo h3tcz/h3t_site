@@ -1,5 +1,8 @@
+# frozen_string_literal: true
 class Picture < ActiveRecord::Base
   belongs_to :project
+
+  default_scope { order(position: :asc) }
 
   has_attached_file :image, styles: {
     mini: '70x70#',

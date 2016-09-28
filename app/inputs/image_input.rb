@@ -1,16 +1,24 @@
+# frozen_string_literal: true
 class ImageInput < CustomFileInput
   def input_fields
     form_out = []
     form_out << @builder
       .simple_fields_for(:"#{attribute_name.to_s}", wrapper: 'bootstrap') do |form|
-      out = []
-      out << content_tag(:div, class: 'well well-large') do
-        inner_form(form)
-      end
-      out << content_tag(:div, nil, class: 'clearfix')
-      safe_join(out)
+      inner_fields_for(form)
     end
     safe_join(form_out)
+  end
+
+  def inner_fields_for(form)
+    out = []
+    out << content_tag(:div, class: 'sort_wrapper',
+                       id: "#{attribute_name}_#{form.object.id}") do
+      content_tag(:div, class: 'well well-large') do
+        inner_form(form)
+      end
+    end
+    out << content_tag(:div, nil, class: 'clearfix')
+    safe_join(out)
   end
 
   def inner_form(form)

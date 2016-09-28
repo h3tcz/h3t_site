@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   devise_for :users
 
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
     resources :static_pages
     resources :projects do
       get :search, on: :collection
+    end
+    resources :pictures do
+      post :sort, on: :collection
     end
     resources :tags
   end

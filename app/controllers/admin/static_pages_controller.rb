@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class StaticPagesController < AdminController
     before_action :find_static_pages, only: [:index]
