@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.3.1'
 
 gem 'rails', '4.2.1'
 
@@ -33,8 +33,6 @@ gem 'newrelic_rpm'
 gem 'puma'
 
 group :development, :test do
-  gem 'capistrano-rails'
-  gem 'capistrano-passenger'
   gem 'pry'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
