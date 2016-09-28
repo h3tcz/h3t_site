@@ -1,0 +1,50 @@
+# This is the configuration used to check the rubocop source code.
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.1
+  Exclude:
+    - 'app/admin/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'app/views/contacts/*.json.jbuilder'
+  CacheRootDirectory: '../../tmp'
+
+Rails:
+  Enabled: true
+
+Style/PredicateName:
+  Exclude:
+    - 'spec/support/feature_macros.rb'
+
+Style/WordArray:
+  MinSize: 3
+
+Style/SymbolProc:
+  IgnoredMethods: validate
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 90
+
+# default zarovnavani vim
+# ignoruje hash pokud jej pouzivame napr. jako parametr:
+#
+#  mail to: 'info@uol.cz',
+#   subject: "Message: #{message.name}",
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: 'ignore_implicit'
+
+# TODO vim jinak zarovnava pokud je metoda volana se zavorkou nebo bez
+#
+# create(:job,
+#        title: "Ucetni"
+#  VS
+#
+#  create :job,
+#    title: "Ucetni"
+Style/AlignParameters:
+  Enabled: false

@@ -1,0 +1,15 @@
+PreCommit:
+  Reek:
+    enabled: false
+
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
+
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - '**/db/schema.rb'
+
+  RailsSchemaUpToDate:
+    enabled: false
