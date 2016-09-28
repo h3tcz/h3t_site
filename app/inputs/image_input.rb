@@ -18,7 +18,7 @@ class ImageInput < CustomFileInput
     sub_out << link_to_remove_file(form)
     sub_out << content_tag(:div,
                            class: "row #{form.object.new_record? ? '' : 'hidden'}") do
-      content_tag(:div, nil, class: 'col-md-2') do
+      content_tag(:div, class: 'col-md-2') do
         form.input(:image, as: :file)
       end
     end

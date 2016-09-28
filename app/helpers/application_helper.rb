@@ -24,16 +24,13 @@ module ApplicationHelper
   end
 
   def menu_link_to(name, link, controller = nil, action = nil)
-    link_array = [
-      "<li class='#{equal_to_params(controller, action, link) ? 'active' : ''}'>",
-      "<a href=#{link}>#{name}</a>",
-      '</li>'
-    ]
-    safe_join(link_array)
+    content_tag(:li, class: (equal_to_params(controller, action) ? 'active' : '')) do
+      link_to(name, link)
+    end
   end
 
   # TODO: solve static pages ids
-  def equal_to_params(controller, action, _link)
+  def equal_to_params(controller, action)
     controller == params[:controller] &&
       action.include?(params[:action]) if controller && action
   end
