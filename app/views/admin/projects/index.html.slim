@@ -15,8 +15,11 @@ br
       .col-sm-2
         = f.input :order, label: false, collection: projects_order_collection,
           selected: params[:search].try(:[], :order)
-      .col-sm-2
+      .col-sm-1
         = f.button :submit, 'Vyhladat'
+      .col-sm-1
+        = link_to 'Zrusit', admin_projects_path, class: 'btn btn-primary'
+
 br
 .row
   .col-md-12
