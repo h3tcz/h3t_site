@@ -40,6 +40,13 @@ module Admin
       redirect_to admin_static_pages_path
     end
 
+    def sort
+      params[:static_pages].each_with_index do |id, index|
+        StaticPage.find(id).update(position: index + 1)
+      end
+      render nothing: true
+    end
+
     private
 
     def find_static_pages

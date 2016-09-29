@@ -22,3 +22,8 @@ jQuery ->
         update: ->
           $.post($(this).data('update-url'), $(this).sortable('serialize'))
       )
+
+    $('#static_pages_body').sortable(
+        update: ->
+          $.post($(this).data('update-url'), $(this).sortable('serialize'))
+      )

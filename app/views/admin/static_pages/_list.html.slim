@@ -15,9 +15,9 @@
           | Published
         th
           | Actions
-    tbody
+    tbody#static_pages_body data-update-url="#{sort_admin_static_pages_path}"
       - static_pages.each do |static_page|
-        tr
+        tr[id="static_pages_#{static_page.id}"]
           td
             = static_page.slug_string
           td
@@ -31,7 +31,7 @@
             = " | "
             = link_to 'Edit', edit_admin_static_page_path(static_page)
             = " | "
-            = link_to 'Delete', admin_static_page_path(static_page), method: :delete
+            = link_to 'Delete', admin_static_page_path(static_page), method: :delete, data: { confirm: 'Are you sure?'  }
 
   .pagination-container
     = will_paginate static_pages
