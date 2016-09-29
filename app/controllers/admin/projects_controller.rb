@@ -42,16 +42,17 @@ module Admin
       redirect_to admin_projects_path, notice: 'Projekt smazan!'
     end
 
-    def search
-      @projects = Project.where('title_cz LIKE ?', '%' + params[:name] + '%')
-        .paginate(page: params[:page], per_page: 15)
-      render partial: 'list', locals: { projects: @projects }
-    end
-
     private
 
     def find_projects
-      @projects = Project.all.paginate(page: params[:page], per_page: 15)
+      @projects = Project.all.unscoped
+      if params[:search].try(:[], :name)
+        @projects = @projects.where('title_cz ILIKE ?', "%#{params[:search][:name]}%")
+      end
+      if params[:search].try(:[], :order)
+        @projects = @projects.order(params[:search][:order])
+      end
+      @projects = @projects.paginate(page: params[:page], per_page: 15)
     end
 
     def find_project

@@ -7,4 +7,3 @@
 //= require chosen-jquery
 //= require fancybox
 //= require admin/init
-//= require admin/projects_search

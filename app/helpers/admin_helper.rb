@@ -7,4 +7,15 @@ module AdminHelper
     link = link_to text, url, {}, &block
     content_tag :li, link, class: html_class
   end
+
+  def projects_order_collection
+    [
+      ['Rok (1-9)', 'year ASC'],
+      ['Rok (9-1)', 'year DESC'],
+      ['Nazov (A-Z)', 'title_cz ASC'],
+      ['Nazov (Z-A)', 'title_cz DESC'],
+      ['Vytvorene (1-9)', 'created_at ASC'],
+      ['Vytvorene (9-1)', 'created_at DESC']
+    ]
+  end
 end

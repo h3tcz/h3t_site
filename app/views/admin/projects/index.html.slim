@@ -8,8 +8,15 @@ br
 
 .row
   .col-md-12
-    .col-sm-6
-      = text_field_tag :name, nil, class: 'form-control', placeholder: 'Zadaj meno pre vyhladavanie...', 'data-url' => search_admin_projects_path
+    = simple_form_for :search, url: admin_projects_path, method: :get do |f|
+      .col-sm-6
+        = f.input :name, label: false, class: 'form-control',
+          placeholder: 'Zadaj meno pre vyhladavanie...', input_html: { value: params[:search].try(:[], :name) }
+      .col-sm-2
+        = f.input :order, label: false, collection: projects_order_collection,
+          selected: params[:search].try(:[], :order)
+      .col-sm-2
+        = f.button :submit, 'Vyhladat'
 br
 .row
   .col-md-12
