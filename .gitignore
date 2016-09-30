@@ -23,3 +23,5 @@ config/deploy/sandbox.rb
 public/system/*
 
 /tags
+*.rdb
+tags

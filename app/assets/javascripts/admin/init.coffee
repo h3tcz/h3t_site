@@ -14,3 +14,16 @@ $ ->
 $(document).ready ->
   $('a.fancybox').fancybox()
   return
+
+jQuery ->
+    $('.pictures-fields').sortable(
+        items: '.fields .sort_wrapper'
+        revert: true
+        update: ->
+          $.post($(this).data('update-url'), $(this).sortable('serialize'))
+      )
+
+    $('#static_pages_body').sortable(
+        update: ->
+          $.post($(this).data('update-url'), $(this).sortable('serialize'))
+      )

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.3.1'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.7.1'
 
 gem 'pg'
 
@@ -32,12 +33,15 @@ gem 'newrelic_rpm'
 
 gem 'puma'
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
-  gem 'capistrano-rails'
-  gem 'capistrano-passenger'
   gem 'pry'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
+  gem 'rubocop', require: false
+  gem 'overcommit'
 end

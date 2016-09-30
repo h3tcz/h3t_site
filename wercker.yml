@@ -1,0 +1,36 @@
+ruby: 2.3.1
+box: ruby
+services:
+  - postgres
+build:
+  steps:
+    - install-packages:
+      packages: nodejs npm libqt4-dev libqtwebkit-dev
+
+    - bundle-install
+    - rails-database-yml
+    - script:
+      name: echo ruby information
+      code: |
+        echo "ruby version $(ruby --version) running!"
+        echo "from location $(which ruby)"
+        echo -p "gem list: $(gem list)"
+    - script:
+      name: Set up db
+      code: bundle exec rake db:schema:load RAILS_ENV=test
+
+    - script:
+      name: run rubocop
+      code: bundle exec rubocop
+
+    - script:
+      name: run brakeman
+      code: |
+        gem install brakeman
+        brakeman
+    - script:
+      name: run bundle audit
+      code: |
+        gem install bundler-audit
+        bundle-audit update
+        bundle-audit check

@@ -1,54 +1,65 @@
-class Admin::StaticPagesController < AdminController
-  before_filter :find_static_pages, only: [:index]
-  before_filter :find_static_page, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
+module Admin
+  class StaticPagesController < AdminController
+    before_action :find_static_pages, only: [:index]
+    before_action :find_static_page, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
-  def show
-  end
-
-  def new
-    @static_page = StaticPage.new
-  end
-
-  def create
-    @static_page = StaticPage.new(premitted_params[:static_page])
-
-    if @static_page.save
-      redirect_to admin_static_pages_path
-    else
-      render 'new'
+    def index
     end
-  end
 
-  def edit
-  end
-
-  def update
-    if @static_page.update_attributes(premitted_params[:static_page])
-      redirect_to admin_static_pages_path
-    else
-      render 'edit'
+    def show
     end
-  end
 
-  def destroy
-    @static_page.destroy
-    redirect_to admin_static_pages_path
-  end
+    def new
+      @static_page = StaticPage.new
+    end
 
-  private
+    def create
+      @static_page = StaticPage.new(premitted_params[:static_page])
 
-  def find_static_pages
-    @static_pages = StaticPage.all.paginate(page: params[:page])
-  end
+      if @static_page.save
+        redirect_to admin_static_pages_path
+      else
+        render 'new'
+      end
+    end
 
-  def find_static_page
-    @static_page = StaticPage.find(params[:id])
-  end
+    def edit
+    end
 
-  def premitted_params
-    params.permit(static_page: [:published, :slug_cz, :slug_en, :title_cz, :title_en, :content_cz, :content_en])
+    def update
+      if @static_page.update_attributes(premitted_params[:static_page])
+        redirect_to admin_static_pages_path
+      else
+        render 'edit'
+      end
+    end
+
+    def destroy
+      @static_page.destroy
+      redirect_to admin_static_pages_path
+    end
+
+    def sort
+      params[:static_pages].each_with_index do |id, index|
+        StaticPage.find(id).update(position: index + 1)
+      end
+      render nothing: true
+    end
+
+    private
+
+    def find_static_pages
+      @static_pages = StaticPage.all.paginate(page: params[:page])
+    end
+
+    def find_static_page
+      @static_page = StaticPage.find(params[:id])
+    end
+
+    def premitted_params
+      params.permit(static_page: [:published, :slug_cz, :slug_en,
+                                  :title_cz, :title_en, :content_cz, :content_en])
+    end
   end
 end

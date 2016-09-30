@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
-
   devise_for :users
 
   root 'home#homepage'
@@ -15,9 +15,14 @@ Rails.application.routes.draw do
     resources :home, only: [:index]
 
     resources :users
-    resources :static_pages
+    resources :static_pages do
+      post :sort, on: :collection
+    end
     resources :projects do
       get :search, on: :collection
+    end
+    resources :pictures do
+      post :sort, on: :collection
     end
     resources :tags
   end
