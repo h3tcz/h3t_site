@@ -60,3 +60,6 @@ Style/IndentArray:
 # SupportedStyles: aligned, indented
 Style/MultilineMethodCallIndentation:
   Enabled: false
+
+Style/AmbiguousBlockAssociation:
+  Enabled: false

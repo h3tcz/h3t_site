@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :home, only: :index do
     get :homepage, on: :collection
   end
-  resources :projects, only: [:index, :show]
+  resources :projects, only: %i[index show]
 
   namespace :admin do
     root 'home#index'

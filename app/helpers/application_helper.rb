@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ApplicationHelper
   def bootstrap_devise_error_messages!
     return '' if resource.errors.empty?
@@ -31,8 +32,12 @@ module ApplicationHelper
   end
 
   # TODO: solve static pages ids
+  # rubocop:disable Style/GuardClause
   def equal_to_params(controller, action)
-    controller == params[:controller] &&
-      action.include?(params[:action]) if controller && action
+    if controller && action
+      controller == params[:controller] &&
+        action.include?(params[:action])
+    end
   end
+  # rubocop:enable Style/GuardClause
 end

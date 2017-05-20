@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CustomFileInput < SimpleForm::Inputs::Base
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::UrlHelper
@@ -54,9 +55,7 @@ class CustomFileInput < SimpleForm::Inputs::Base
     uploaded
   end
 
-  def preview_line
-  end
+  def preview_line; end
 
-  def input_fields
-  end
+  def input_fields; end
 end

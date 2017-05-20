@@ -1,14 +1,13 @@
 # frozen_string_literal: true
+
 module Admin
   class StaticPagesController < AdminController
     before_action :find_static_pages, only: [:index]
-    before_action :find_static_page, only: [:show, :edit, :update, :destroy]
+    before_action :find_static_page, only: %i[show edit update destroy]
 
-    def index
-    end
+    def index; end
 
-    def show
-    end
+    def show; end
 
     def new
       @static_page = StaticPage.new
@@ -24,8 +23,7 @@ module Admin
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @static_page.update_attributes(premitted_params[:static_page])
@@ -58,8 +56,8 @@ module Admin
     end
 
     def premitted_params
-      params.permit(static_page: [:published, :slug_cz, :slug_en,
-                                  :title_cz, :title_en, :content_cz, :content_en])
+      params.permit(static_page: %i[published slug_cz slug_en
+                                    title_cz title_en content_cz content_en])
     end
   end
 end

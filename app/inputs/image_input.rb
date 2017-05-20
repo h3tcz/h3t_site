@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ImageInput < CustomFileInput
   def input_fields
     form_out = []

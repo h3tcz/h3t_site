@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AdminHelper
   def li_navbar_link(text, url = nil, _options = {}, &block)
     actual_url = text && url.nil? ? text : url

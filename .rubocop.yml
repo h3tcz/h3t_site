@@ -9,6 +9,8 @@ AllCops:
     - 'db/**/*'
     - 'bin/**/*'
     - 'app/views/contacts/*.json.jbuilder'
+    - 'lib/tasks/**/*'
+    - 'config/initializers/**/*'
   CacheRootDirectory: '../../tmp'
 
 Rails:
