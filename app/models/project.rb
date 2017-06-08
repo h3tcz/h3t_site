@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Project < ActiveRecord::Base
   include Sluggable
 
@@ -8,7 +9,7 @@ class Project < ActiveRecord::Base
 
   default_scope { order('year DESC') }
 
-  scope :with_year,            -> (year) { where(year: year) }
+  scope :with_year,            ->(year) { where(year: year) }
   scope :published,            -> { where(published: true) }
   scope :published_front_page, -> { where(published_front: true) }
 

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
+
 module Admin
   class UsersController < AdminController
     before_action :find_users, only: [:index]
-    before_action :find_user, only: [:edit, :update, :destroy]
+    before_action :find_user, only: %i[edit update destroy]
 
-    def index
-    end
+    def index; end
 
     def new
       @user = User.new
@@ -21,8 +21,7 @@ module Admin
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @user.update_attributes(premitted_params[:user])
@@ -48,7 +47,7 @@ module Admin
     end
 
     def premitted_params
-      params.permit(user: [:email, :password, :password_confirmation])
+      params.permit(user: %i[email password password_confirmation])
     end
   end
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   before_action :find_project, only: :show
 
@@ -12,12 +13,11 @@ class ProjectsController < ApplicationController
     @projects.order!(created_at: :desc)
   end
 
-  def show
-  end
+  def show; end
 
   private
 
   def find_project
-    @project = Project.find_by_slug_cz(params[:id])
+    @project = Project.find_by(slug_cz: params[:id])
   end
 end

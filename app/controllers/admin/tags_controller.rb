@@ -1,11 +1,11 @@
 # frozen_string_literal: true
+
 module Admin
   class TagsController < AdminController
     before_action :find_tags, only: [:index]
-    before_action :find_tag, only: [:edit, :update, :destroy]
+    before_action :find_tag, only: %i[edit update destroy]
 
-    def index
-    end
+    def index; end
 
     def new
       @tag = Tag.new
@@ -21,8 +21,7 @@ module Admin
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @tag.update_attributes(premitted_params[:tag])

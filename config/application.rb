@@ -1,9 +1,12 @@
 # frozen_string_literal: true
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
+
+Dotenv::Railtie.load if Rails.env.development?
 
 module H3tSite
   class Application < Rails::Application

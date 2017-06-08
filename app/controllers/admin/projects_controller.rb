@@ -1,14 +1,13 @@
 # frozen_string_literal: true
+
 module Admin
   class ProjectsController < AdminController
     before_action :find_projects, only: [:index]
-    before_action :find_project, only: [:show, :edit, :update, :destroy]
+    before_action :find_project, only: %i[show edit update destroy]
 
-    def index
-    end
+    def index; end
 
-    def show
-    end
+    def show; end
 
     def new
       @project = Project.new
@@ -66,7 +65,7 @@ module Admin
                               :location_en, :collaborator_cz, :collaborator_en,
                               :title_picture,
                               tag_ids: [],
-                              pictures_attributes: [:id, :image, :_destroy]])
+                              pictures_attributes: %i[id image _destroy]])
     end
   end
 end

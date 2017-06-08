@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 module TransliteratePaperclip
   def transliterate_file_name(paperclip_file)
     paperclip_file = [paperclip_file] unless paperclip_file.is_a?(Enumerable)
     paperclip_file.each do |file|
       filename = read_attribute("#{file}_file_name")
-      next unless filename.present?
+      next if filename.blank?
       extension = File.extname(filename).gsub(/^\.+/, '')
       filename = filename.gsub(/\.#{extension}$/, '')
       send(file)
