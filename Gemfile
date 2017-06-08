@@ -10,7 +10,6 @@ gem 'pg'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
-gem 'coffee-rails'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

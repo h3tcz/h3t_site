@@ -236,7 +236,6 @@ DEPENDENCIES
   byebug
   chosen-rails
   ckeditor_rails
-  coffee-rails
   devise
   dotenv-rails
   fancybox2-rails
