@@ -26,3 +26,4 @@ public/system/*
 *.rdb
 tags
 .env
+.DS_Store
