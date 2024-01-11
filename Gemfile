@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '3.2.2'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '~> 5'
 
 gem 'pg'
 
@@ -30,6 +30,7 @@ gem 'jquery-easing-rails'
 
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
+gem 'tzinfo-data'
 
 gem 'puma'
 

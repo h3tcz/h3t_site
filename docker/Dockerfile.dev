@@ -1,0 +1,14 @@
+FROM ruby:3.2.2-alpine
+
+MAINTAINER  Andrej Antas <andrej@antas.cz>
+
+## Default Packages
+RUN apk add --no-cache autoconf automake curl jq git bash nodejs npm yarn \
+    alpine-sdk curl curl-dev shared-mime-info postgresql-dev postgresql-client \
+    openssh less build-base gcompat
+
+ENV APP_HOME /app
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+
+CMD ["bash", "-c"]

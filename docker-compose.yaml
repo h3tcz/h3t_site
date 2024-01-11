@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  postgres-service:
+    image: postgres:9.6-alpine
+    environment:
+      - POSTGRES_PASSWORD=anything
+      - POSTGRES_USER=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data_h3t:/var/lib/postgresql/data:cached
+    networks:
+      - internal
+
+  h3t:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    command: >
+      bash -c "bundle install &&
+        bundle exec rails s"
+    ports:
+      - '5000:5000'
+    depends_on:
+      - postgres-service
+    environment:
+      - BUNDLE_JOBS=1
+      - BUNDLE_PATH=/bundle
+      - ENVIRONMENT=development
+      - PGHOST=postgres-service
+      - PGUSER=postgres
+      - PGPASS=anything
+      - DBNAME=calculation_engine_management
+    volumes:
+      - .:/app:cached
+      - gem_store_h3t:/bundle:cached
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+    networks:
+      - internal
+
+volumes:
+  gem_store_h3t:
+
+  db_data_h3t:
+
+networks:
+  internal:
