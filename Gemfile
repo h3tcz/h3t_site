@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
-gem 'rails', '~> 5'
+gem 'rails', '~> 6'
 
 gem 'pg'
 
@@ -34,11 +34,13 @@ gem 'tzinfo-data'
 
 gem 'puma'
 
+
 group :development do
   gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
+  gem 'listen'
   gem 'pry'
   gem 'byebug'
   gem 'spring'

@@ -11,8 +11,6 @@ services:
       - '5432:5432'
     volumes:
       - db_data_h3t:/var/lib/postgresql/data:cached
-    networks:
-      - internal
 
   h3t:
     tty: true
@@ -22,30 +20,23 @@ services:
       dockerfile: docker/Dockerfile.dev
     command: >
       bash -c "bundle install &&
-        bundle exec rails s"
+        bundle exec rails s -b 0.0.0.0"
     ports:
-      - '5000:5000'
+      - '4000:3000'
     depends_on:
       - postgres-service
     environment:
       - BUNDLE_JOBS=1
       - BUNDLE_PATH=/bundle
-      - ENVIRONMENT=development
       - PGHOST=postgres-service
       - PGUSER=postgres
       - PGPASS=anything
-      - DBNAME=calculation_engine_management
     volumes:
       - .:/app:cached
       - gem_store_h3t:/bundle:cached
-      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
-    networks:
-      - internal
+      # - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
 
 volumes:
   gem_store_h3t:
 
   db_data_h3t:
-
-networks:
-  internal:
