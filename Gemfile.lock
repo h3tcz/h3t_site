@@ -68,8 +68,6 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
-    binding_of_caller (1.0.0)
-      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -94,7 +92,6 @@ GEM
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.4)
-    debug_inspector (1.2.0)
     devise (4.9.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -276,11 +273,6 @@ GEM
     unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (2.3.0)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -323,7 +315,6 @@ DEPENDENCIES
   spring
   tzinfo-data
   uglifier
-  web-console (~> 2.0)
   will_paginate
   will_paginate-bootstrap
 

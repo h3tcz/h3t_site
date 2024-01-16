@@ -14,5 +14,5 @@
     .images
       - @project.pictures.each do |picture|
         .image
-          = link_to(picture.image.url, class: 'fancybox', rel: 'project_gallery') do
-            = image_tag picture.image.url
+          = link_to(rails_blob_path(picture.image), class: 'fancybox', rel: 'project_gallery') do
+            = image_tag picture.image

@@ -26,3 +26,5 @@ public/system/*
 *.rdb
 tags
 .env
+
+storage/

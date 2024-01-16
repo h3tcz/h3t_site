@@ -5,7 +5,13 @@ class Picture < ActiveRecord::Base
   default_scope { order(position: :asc) }
 
   # has_attached_file :image, styles: {
-  has_one_attached :image
+  has_one_attached :image do |attachable|
+    # Prepare for rails 7
+    attachable.variant :mini, resize_to_limit: [70, 70]
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+    attachable.variant :medium, resize_to_limit: [200, 200]
+    attachable.variant :large, resize_to_limit: [400, 400]
+  end
 
   # before_post_process { |_c| transliterate_file_name(:image) }
 

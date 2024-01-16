@@ -21,7 +21,7 @@ module Admin
       if @project.save
         redirect_to admin_projects_path
       else
-        render 'new'
+        render "new"
       end
     end
 
@@ -30,16 +30,16 @@ module Admin
     end
 
     def update
-      if @project.update_attributes(premitted_params[:project])
+      if @project.update(premitted_params[:project])
         redirect_to admin_projects_path
       else
-        render 'edit'
+        render "edit"
       end
     end
 
     def destroy
       @project.destroy
-      redirect_to admin_projects_path, notice: 'Projekt smazan!'
+      redirect_to admin_projects_path, notice: "Projekt smazan!"
     end
 
     private
@@ -47,7 +47,7 @@ module Admin
     def find_projects
       @projects = Project.all.unscoped
       if params[:search].try(:[], :name)
-        @projects = @projects.where('title_cz ILIKE ?', "%#{params[:search][:name]}%")
+        @projects = @projects.where("title_cz ILIKE ?", "%#{params[:search][:name]}%")
       end
       if params[:search].try(:[], :order)
         @projects = @projects.order(params[:search][:order])

@@ -18,9 +18,9 @@
       = f.input :year
       = f.input :tag_ids, collection: Tag.all.map{ |u| [u.name, u.id] }, input_html: { include_blank: true, multiple: true, class: 'chosen-select optional form-control' }
       = f.input :title_picture
-      - if f.object.title_picture?
-        = link_to f.object.title_picture.url, class: 'fancybox' do
-          = image_tag f.object.title_picture.url(:thumb)
+      - if f.object.title_picture.attached?
+        = link_to rails_blob_path(f.object.title_picture, disposition: 'attachment'), class: 'fancybox' do
+          = image_tag f.object.title_picture
 
     #czech.tab-pane.fade
       = f.input :slug_cz, disabled: true
@@ -37,6 +37,7 @@
       = f.input :content_en, input_html: { class: 'ckeditor' }
 
     #gallery.tab-pane.fade
+      - ImageInput
       = f.input :pictures, as: :image, multiple: true, label: false
 
   br.clearfix
